@@ -20,6 +20,10 @@ $(function () {
 						collection: postCollection,
 						el: $("#posts")
 					});
+				/*
+					TODO: Query smart contract asking
+					for all stored data
+				*/
 				$.ajax({
 					url: '/getpostsnewsfeed', 
 					type: "GET",

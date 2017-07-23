@@ -64,83 +64,29 @@ $(function () {
 		var memeSelected = "meme-option-no-meme" !== selectedMemeID;
 
 		var msg = $("#meme-msg").val();
-		// var verificationError = verifyPost(msg, memeSelected);
 
-		// if (!verificationError) {
 			console.log("FUDGE");
 			var imgData;
 			//Create the post
 			var post = {};
-			// if (msg)
-				// post.text = msg;
+
 			if (memeSelected) {
 				imgData = window.getImageFromCanvas();
 			} else {
-				// TODO: Don't post
+				// Don't post if no meme selected
 				swal.close();
 				return;
 			}
-
-			var url;
-			// if (postType === "post") {
-				// var pathComponents = window.location.pathname.split('/');
-				// if (pathComponents[1]) {
-
-					//Set to_user to the profile page we are currently viewing
-					//Note: We will verify in the route whether we are friends
-					//before allowing the post to go through
-					// post.to_user = pathComponents[1];
-				// }
-
-				url = "/addpost";
-			// }
 			
 			//Perform ajax request to add the post
 			var performPost = function() {	
 				/*
 					TODO Add imgData to smart contract
 				*/
-				console.log("FUCK ");
 				console.log(imgData);
-
-				// $.ajax({
-				// 	url: url,
-				// 	type: "POST",
-				// 	data: {post: postData},
-				// 	success: function (a, b, res) {
-				// 		if (window.updateNewsfeedPosts) {
-				// 			window.updateNewsfeedPosts();
-				// 		}
-				// 	},
-				// 	error: function (err) {
-				// 		$(".meme-post-error-label").text("Error: " + err);
-				// 	}
-				// });
 			};
 			performPost();
 
 			swal.close();
-			// if (imgData) {
-			// 	$.ajax({
-			// 		url: "/addimage",
-			// 		type: "POST",
-			// 		data: {imgData: imgData},
-			// 		success: function (a, b, res) {
-			// 			var imgUrl = res.responseJSON.url;
-			// 			post.image = imgUrl;
-			// 			performPost(post);
-			// 		},
-			// 		error: function (err) {
-			// 			$(".meme-post-error-label").text("Error: " + err);
-			// 		},
-			// 		async: false
-			// 	});
-			// } else {
-			// 	performPost(post);
-			// }
-		// } else {
-			// $(".meme-post-error-label").text("Error: " + verificationError);
-			// $(this).prop("disabled", false);
-		// }
 	});
 });
