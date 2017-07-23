@@ -3,6 +3,7 @@ const path = require("path");
 const bodyParser = require("body-parser");
 const app = express();
 const PORT_NUM = 8001;
+const artifact = require("./build/contracts/IPFSExplorer.json");
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json({limit: '100 mb'}));
@@ -31,5 +32,9 @@ app.get("/downloadipfs", (req, res) => {
 	res.set("Content-Disposition", "attachment");
 	res.send("Ok");
 });
+
+app.get("/downloadartifact", (req, res) => {
+	res.send(artifact);
+})
 
 app.listen(PORT_NUM, () => console.log("Distribute the Press --> Profit"));

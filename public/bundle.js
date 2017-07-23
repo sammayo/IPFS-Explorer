@@ -24112,19 +24112,21 @@ if (typeof web3 !== 'undefined') {
   window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
-var artifact = JSON.parse(fs.readFileSync("../build/contracts/IPFSExplorer.json", "utf8"));
+$.get("/downloadartifact", (res) => {
+	var artifact = res;
+	
+	// MetaCoin is our usable abstraction, which we'll use through the code below.
+	var IPFSExplorer = contract(artifact);
 
-// MetaCoin is our usable abstraction, which we'll use through the code below.
-var IPFSExplorer = contract(artifact);
+	IPFSExplorer.setProvider(web3.currentProvider);
 
-IPFSExplorer.setProvider(web3.currentProvider);
+	// Get the initial account balance so it can be displayed.
+	IPFSExplorer.deployed().then(function(instance) {
+		console.log("FUCK");
+		console.log(typeof instance);
+	});
 
-// Get the initial account balance so it can be displayed.
-IPFSExplorer.deployed().then(function(instance) {
-  var exp = instance;
-  return exp.getBalance.call(account, {from: account});
 });
-
 },{"fs":206,"truffle-contract":101,"web3":154}],206:[function(require,module,exports){
 
 },{}],207:[function(require,module,exports){

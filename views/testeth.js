@@ -13,15 +13,16 @@ if (typeof web3 !== 'undefined') {
   window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
-var artifact = JSON.parse(fs.readFileSync("../build/contracts/IPFSExplorer.json", "utf8"));
+$.get("/downloadartifact", (res) => {
+	var artifact = res;
+	
+	// MetaCoin is our usable abstraction, which we'll use through the code below.
+	var IPFSExplorer = contract(artifact);
 
-// MetaCoin is our usable abstraction, which we'll use through the code below.
-var IPFSExplorer = contract(artifact);
+	IPFSExplorer.setProvider(web3.currentProvider);
 
-IPFSExplorer.setProvider(web3.currentProvider);
+	// Get the initial account balance so it can be displayed.
+	IPFSExplorer.deployed().then(function(instance) {
+	});
 
-// Get the initial account balance so it can be displayed.
-IPFSExplorer.deployed().then(function(instance) {
-  var exp = instance;
-  return exp.getBalance.call(account, {from: account});
 });
