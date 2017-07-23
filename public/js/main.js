@@ -105,24 +105,9 @@ $(function () {
 			let file = this.files[0];
 			reader.onload = function () {
 				console.log(JSON.stringify(this.result) + " is of type: "+ typeof this.result + " and is of length "+this.result.byteLength)
-			    // var u = new Uint8Array(this.result),
-			    //     a = new Array(u.length),
-			    //     i = u.length;
-			    // while (i--) // map to hex
-			    //     a[i] = (u[i] < 16 ? '0' : '') + u[i].toString(16);
-			    // u = null; // free memory
-			    // console.log(a); // work with this
-			// });
-	    	// reader.onload = function () {
 	        	var buffer = this.result;
-	        	// var array = new Uint8Array(buffer);
-	        	// var hex = Array.prototype.map.call(new Uint8Array(buffer), x => ('00' + x.toString(16)).slice(-2)).join('');
-	    		// var text = uint8ToText(array);
-	    		// console.log(array[0])
-	    		// console.log(text)
 	      		fileName = file.name;
 	      		fileContents = buffer;
-	      		//saveAs(new Blob([fileContents]), fileName);
 	      		console.log(buffer);
 	      		// console.log(parseInt(buffer[0]));
 	      		$("#btn-file-submit").show();
@@ -170,16 +155,7 @@ $(function () {
 		let searchVal = $("#search-hash").val();
 		downloadFile("/downloadipfs?hashToDl=" + searchVal)
 	    .then((contents) => {
-	    	console.log(new Blob([contents.data]).toString());
 	    	download(contents.data, contents.name);
 	    });
 	});
 });
-
-function uint8ToText(array) {
-	var text = "";
-	for(var i=0; i<array.length; i++) {
-		text += String.fromCharCode(array[i]);
-	}
-	return text;
-}
