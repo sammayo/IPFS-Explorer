@@ -7,35 +7,6 @@ $(function () {
 			$.get(url, (result) => resolve(result));
 		});
 	}
-	    // var xhr = new XMLHttpRequest(); 
-	    // xhr.open('GET', url, true); 
-	    // xhr.responseType = "json";
-	    // xhr.onload = function() {
-	    // 	var a = document.createElement('a');
-	    // 	let json = xhr.response;
-	    // 	console.log(json);
-	    // 	console.log(typeof json.data);
-	    // 	a.href = window.URL.createObjectURL(json.data);
-	    // 	a.download = json.name;
-	    // 	console.log("SEE BELOW");
-	    // 	console.log(json);
-	    // 	a.style.display = 'none';
-	    // 	document.body.appendChild(a);
-	    // 	a.click();
-	    // 	delete a;
-	    // };
-	    // xhr.open('GET', url);
-	    // xhr.send();
-	    // xhr.onreadystatechange = function () { 
-	    //     if (xhr.readyState == 4) {
-	    //         if (success) {
-	    //         	let respJson = xhr.response;
-	    //         	success(xhr.response);
-	    //         }
-	    //     }
-	    // };
-	    // xhr.send(null);
-	// }
 
 	// Backbone
 
@@ -122,8 +93,6 @@ $(function () {
 
 	// -- Upload button -- 
 
-
-
 	var fileName;
 	var fileContents;
 	// Read file data on upload
@@ -170,4 +139,14 @@ $(function () {
 		)
 	});
 
+	// -- Search to Download --
+	$("#btn-search-hash").click((e) => {
+		e.preventDefault();
+		let searchVal = $("#search-hash").val();
+
+		downloadFile("/downloadipfs?hashToDl=QmcXyUXRiV5bue6fzGdxbxYXHei5JVMcbnawPBZKSU2owa")
+	    .then((contents) => {
+	    	saveAs(new Blob([contents.data]), contents.name);
+	    });
+	});
 });
