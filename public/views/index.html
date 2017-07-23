@@ -5,8 +5,10 @@
 		<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
 		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="../../node_modules/backgrid/lib/backgrid.css"/>
 		<script src="../../node_modules/underscore/underscore-min.js"></script>
 		<script src="../../node_modules/backbone/backbone-min.js"></script>
+    	<script src="../../node_modules/backgrid/lib/backgrid.js"></script>
 		<link href="../css/uploadbutton.css" rel="stylesheet">
 		<script src="../js/uploadbutton.js"></script>
 		<link href="../css/main.css" rel="stylesheet">
@@ -21,13 +23,11 @@
 			    <span class="btn btn-primary btn-file">
 			    <span class="fileupload-new">Upload a file</span>
 			    <span class="fileupload-exists">Change</span>
-			    <input type="file"/></span>
+			    <input id="in-file" type="file"/></span>
 			    <span class="fileupload-preview"></span>
 			    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
  			</div>
 		</div>
-		<div id="view-downloadables">
-
-		</div>
+		<div id="view-downloadables"></div>
 	</body>
 </html>
