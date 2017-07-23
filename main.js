@@ -32,7 +32,7 @@ app.get("/downloadipfs", async (req, res) => {
 	let content = await ipfsInteractor.download(hash);
 	//TODO: Send back a file
 	res.set("Content-Disposition", "attachment");
-	res.send({content: content['data'], name: content['name']});
+	res.send({data: content['data'], name: content['name']});
 });
 
 app.get("/downloadartifact", (req, res) => {

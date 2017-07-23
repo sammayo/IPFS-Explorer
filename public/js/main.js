@@ -2,24 +2,30 @@ $(function () {
 
 	// Utilities
 
-	function downloadFile(url, success) {
-	    var xhr = new XMLHttpRequest(); 
+	function downloadFile(url) {
+		return new Promise((resolve, reject) => {
+			$.get(url, (result) => resolve(result));
+		});
+	}
+	    // var xhr = new XMLHttpRequest(); 
 	    // xhr.open('GET', url, true); 
-	    xhr.responseType = "blob";
-	    xhr.onload = function() {
-	    	var a = document.createElement('a');
-	    	let json = xhr.response;
-	    	a.href = window.URL.createObjectURL(json.data);
-	    	a.download = json.name;
-	    	console.log("SEE BELOW");
-	    	console.log(json);
-	    	a.style.display = 'none';
-	    	document.body.appendChild(a);
-	    	a.click();
-	    	delete a;
-	    };
-	    xhr.open('GET', url);
-	    xhr.send();
+	    // xhr.responseType = "json";
+	    // xhr.onload = function() {
+	    // 	var a = document.createElement('a');
+	    // 	let json = xhr.response;
+	    // 	console.log(json);
+	    // 	console.log(typeof json.data);
+	    // 	a.href = window.URL.createObjectURL(json.data);
+	    // 	a.download = json.name;
+	    // 	console.log("SEE BELOW");
+	    // 	console.log(json);
+	    // 	a.style.display = 'none';
+	    // 	document.body.appendChild(a);
+	    // 	a.click();
+	    // 	delete a;
+	    // };
+	    // xhr.open('GET', url);
+	    // xhr.send();
 	    // xhr.onreadystatechange = function () { 
 	    //     if (xhr.readyState == 4) {
 	    //         if (success) {
@@ -29,7 +35,7 @@ $(function () {
 	    //     }
 	    // };
 	    // xhr.send(null);
-	}
+	// }
 
 	// Backbone
 
@@ -88,11 +94,10 @@ $(function () {
 
 			// add a button
 			tingleModal.addFooterBtn('Download', 'tingle-btn tingle-btn--primary', function() {
-			    downloadFile("/downloadipfs?hashToDl=" + model.attributes.hash, 
-			    	(a) => {
-							saveAs(new Blob([a]), fileName);
-						}
-				);
+			    downloadFile("/downloadipfs?hashToDl=QmcXyUXRiV5bue6fzGdxbxYXHei5JVMcbnawPBZKSU2owa")
+			    .then((contents) => {
+			    	saveAs(new Blob([contents.data]), contents.name);
+			    });
 			});
 
 			// add another button
