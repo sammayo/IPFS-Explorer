@@ -2,21 +2,32 @@
 <html>
 	<head>
 		<title>IPFS Explorer</title>
-		<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
-		<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+		<link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/css/bootstrap.min.css" rel="stylesheet">
+		<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+		<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0-rc1/js/bootstrap.min.js"></script>
+		<script src="../../node_modules/underscore/underscore-min.js"></script>
+		<script src="../../node_modules/backbone/backbone-min.js"></script>
+		<link href="../css/uploadbutton.css" rel="stylesheet">
+		<script src="../js/uploadbutton.js"></script>
+		<link href="../css/main.css" rel="stylesheet">
+		<script src="../js/main.js"></script>
 	</head>
 	<body>
 		<div>
 			<h1>IPFS Explorer</h1>
 		</div>
-		<div>
+		<div id="div-upload">
 			<div class="fileupload fileupload-new" data-provides="fileupload">
-			    <span class="btn btn-primary btn-file"><span class="fileupload-new">Upload a file</span>
+			    <span class="btn btn-primary btn-file">
+			    <span class="fileupload-new">Upload a file</span>
 			    <span class="fileupload-exists">Change</span>
-			    <input type="file" /></span>
+			    <input type="file"/></span>
 			    <span class="fileupload-preview"></span>
 			    <a href="#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
  			</div>
+		</div>
+		<div id="view-downloadables">
+
 		</div>
 	</body>
 </html>
