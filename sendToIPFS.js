@@ -23,7 +23,7 @@ function download(hash) {
     ipfs.files.cat(hash, function(err, stream) {
       if (err) throw err;
       stream.pipe(bl((err, data) => {
-        content = JSON.parse(data.toString());
+        content = JSON.parse(data);
         console.log(content);
         resolve(content);
       }))
