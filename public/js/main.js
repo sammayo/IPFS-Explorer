@@ -19,7 +19,7 @@ $(function () {
 
 	var columns = [
 	    {
-	        name: "fileName",
+	        name: "name",
 	        label: "File Name",
 	        cell: "string",
 	        editable: false
@@ -106,7 +106,7 @@ $(function () {
 	      		fileContents = buffer;
 	      		$("#btn-file-submit").show();
 	      		downloadables.push({
-	      			name: "File name",
+	      			name: "FUCK YEAH",
 	      			dateAdded: "1",
 	      			numDownloads: "2",
 	      			numUpVotes: "3",
@@ -144,7 +144,7 @@ $(function () {
 		e.preventDefault();
 		let searchVal = $("#search-hash").val();
 
-		downloadFile("/downloadipfs?hashToDl=QmcXyUXRiV5bue6fzGdxbxYXHei5JVMcbnawPBZKSU2owa")
+		downloadFile("/downloadipfs?hashToDl=" + searchVal)
 	    .then((contents) => {
 	    	saveAs(new Blob([contents.data]), contents.name);
 	    });
