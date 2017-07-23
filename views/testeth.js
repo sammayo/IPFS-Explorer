@@ -30,3 +30,5 @@ $.get("/downloadartifact", (res) => {
 	}
 
 });
+
+window.pane = {addFile: addFile}
