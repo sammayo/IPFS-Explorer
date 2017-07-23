@@ -22,5 +22,8 @@
   "dependencies": {
     "backbone": "^1.3.3",
     "jquery": "^3.2.1"
+    "browser-ipfs": "0.0.6",
+    "truffle-contract": "^2.0.0",
+    "web3": "^0.20.0"
   }
 }
