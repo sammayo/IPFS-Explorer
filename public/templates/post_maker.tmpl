@@ -1,0 +1,61 @@
+<div class="post-maker-template" postid="" posttype="">
+	<div class="form-group">
+		<h3 class="meme-post-error-label"></h3>
+		<input type="text" class="form-control" id="meme-msg" placeholder="Enter some message (optional)">
+	</div>
+	<div class="row">
+		<div class="col-lg-2">
+			<div class="thumbnail meme-option" id="meme-option-no-meme">
+				<img class="img-responsive meme-img-option" src="imgs/white.png">
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<input type="file" id="meme-option-upload-file-input">
+			<div class="thumbnail meme-option" id="meme-option-upload">
+				<img class="img-responsive meme-img-option" src="imgs/cloud.svg">
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="thumbnail meme-option" id="meme-option-meme1">
+				<img class="img-responsive meme-img-option" src="imgs/wonka.jpg">
+			</div>
+		</div>
+	<!-- </div> -->
+	<!-- <div class="row"> -->
+		<div class="col-lg-2">
+			<div class="thumbnail meme-option" id="meme-option-meme2">
+				<img class="img-responsive meme-img-option" src="imgs/leo.jpg">
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="thumbnail meme-option" id="meme-option-meme3">
+				<img class="img-responsive meme-img-option" src="imgs/aliens.jpg">
+			</div>
+		</div>
+		<div class="col-lg-2">
+			<div class="thumbnail meme-option meme-option-selected" id="meme-option-meme4">
+				<img class="img-responsive meme-img-option" src="imgs/jordan.jpg">
+			</div>
+		</div>
+	</div>
+	<div id="meme-builder-container">
+		<div id="meme-builder">
+			<canvas id="memecanvas">
+				<img id="start-image" src="imgs/jordan.jpg" alt="" />
+			</canvas>
+
+			<div class="form-group">
+				<input type="text" class="form-control" id="top-text" placeholder="Enter top line of meme...">
+				<input type="text" class="form-control" id="bottom-text" placeholder="Enter bottom line of meme...">
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-lg-6">
+			<button type="button" class="btn btn-primary post-modal-post-btn">Post</button>
+		</div>
+		<div class="col-lg-6">
+			<button type="button" class="btn btn-danger post-modal-cancel-btn">Cancel</button>
+		</div>
+	</div>
+</div>

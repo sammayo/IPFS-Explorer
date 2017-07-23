@@ -1,0 +1,190 @@
+.body {
+    background-color: #e9ebee;
+}
+
+.post {
+    padding-top: 1.5em;
+}
+
+.post-content {
+    border: 1px solid;
+    border-top-color: rgb(229, 230, 233);
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-right-color: rgb(223, 224, 228);
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-bottom-color: rgb(208, 209, 213);
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-left-color: rgb(223, 224, 228);
+    border-left-style: solid;
+    border-left-width: 1px;
+    border-image-source: initial;
+    border-image-slice: initial;
+    border-image-width: initial;
+    border-image-outset: initial;
+    border-image-repeat: initial;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
+    border-radius: 3px;
+}
+
+.post-header {
+    min-height: 5em;
+    background-color: #fff;
+    font-size: 1.5em;
+    margin-bottom: 0px;
+}
+
+.post-header-small {
+    min-height: 5em;
+    background-color: #fff;
+    font-size: 1.5em;
+}
+
+.post-autogen {
+    min-height: 4.5em;
+    background-color: #fff;
+    font-size: 1.5em;
+}
+
+.post-only-text {
+    background-color: #fff;
+}
+
+.post-text {
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+.post-text-small {
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+.post-user {
+    padding-left: 10px;
+    font-size: 1.2em;
+    color: black;
+}
+
+.post-user-small {
+    padding-left: 10px;
+    font-size: 0.8em;
+    color: black;
+}
+
+.post-img {
+    width: 100%;
+    height: 100%;
+}
+
+.post-time {
+    float: right;
+    margin-right: 5px;
+    font-size: 0.7em;
+    color: #2f3027;
+}
+
+.post-time-small {
+    float: right;
+    margin-right: 5px;
+    font-size: 0.5em;
+    line-height: 14px;
+}
+
+.interact-btn {
+    font-size: 0.8em;
+    background: transparent;
+}
+
+.interact-btn-tight-spacing {
+    margin-right: 100px;
+}
+
+.comment {
+    padding-top: 1em;
+}
+
+.comment-content {
+    border: solid black 2px;
+}
+
+.comment-image {
+    width: 100%;
+    height: 100%;
+}
+
+.comment-text {
+    padding-top: 1.5em;
+    font-size: 1em;
+}
+
+.comment-user {
+    font-size: 1em;
+    float: left;
+    font-weight: bold;
+}
+
+.comment-time {
+    float: right;
+    margin-right: 5px;
+    font-size: 0.8em;
+}
+
+.comments {
+    height: 20em;
+    overflow: scroll;
+}
+
+.post-display-add-modal {
+    width: 100%;
+    float: center;
+    height: 5vw;
+    margin-top: 5px;
+    min-height: 40px;
+    font-size: 1.5em;
+    border-radius: 0px;
+}
+
+.post-modal-instruct-header {
+    text-align: center;
+}
+
+.meme-post-error-label {
+    text-align: center;
+    font-size: 1em;
+    color: red;
+}
+
+.post-modal-post-btn {
+    /*margin-left: 50%;*/
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+.post-modal-cancel-btn {
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+}
+
+.meme-img-option {
+    width: 100%;
+    height: 100%;
+}
+
+.meme-option-selected {
+    border: solid pink 5px;
+}
+
+#meme-option-upload-file-input {
+    display: none;
+}
+
+#start-image {
+    left: 0px; 
+    top: 0px; 
+    position: relative;
+}

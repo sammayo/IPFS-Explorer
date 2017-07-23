@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div id="post-adder">
+            <button type="button" class="btn btn-primary post-display-add-modal" postType="post">Share a meme?</button>
+        </div>
+        <% _.each(posts, function(post, index) { %>
+            <div class="post" postid=<%= post.post_id %> timestamp=<%= post.timestamp %> to_user=<%= post.to_user %>>
+                <div class="post-content">
+                    <% var post_img = post.image;%>
+                    <% if (post.post_type === "friendship") { %>
+                        <div class="post-header post-autogen"> 
+                    <% } else { %>
+                        <% if (!post_img) { %>
+                            <div class="post-header post-only-text">
+                        <% } else { %>
+                            <div class="post-header">
+                        <% } %>
+                    <% } %>
+                    
+                        <% if (post.post_type === "friendship") { %>
+                            <div class="col-lg-9">
+                             <p class="post-text"><a class="post-user-hyperlink" href="/<%= post.to_user %>"><%= post.to_user_info.first_name %> <%= post.to_user_info.last_name %></a><%= post.text %><a class="post-user-hyperlink" href="/<%= post.from_user %>"><%= post.from_user_info.first_name %> <%= post.from_user_info.last_name %></a></p>
+                            </div>
+                        <% } else { %>
+                            <div class="col-lg-9">
+                                <% if (post.to_user !== post.from_user) { %>
+                                    <a class="post-user" href="/<%= post.from_user %>"><%= post.from_user_info.first_name %> <%= post.from_user_info.last_name %> </a>  ▶<a class="post-user" href="/<%= post.to_user %>"><%= post.to_user_info.first_name %> <%= post.to_user_info.last_name %></a>
+                                <% } else {%>
+                                    <a class="post-user" href="/<%= post.to_user %>"><%= post.from_user_info.first_name %> <%= post.from_user_info.last_name %></a>
+                                <% } %>
+                                <p class="post-text"><%= post.text %></p>
+                            </div>
+                        <% } %>
+                        <div class="col-lg-3">
+                            <div class="row">
+                                <span class="post-time"><%= moment(post.timestamp).fromNow() %></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6"></div>
+                                <div class="col-lg-3">
+                                    <button class="btn interact-btn comment-btn">
+                                        <span class="glyphicon glyphicon-comment">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="col-lg-3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="like-container">
+                                    <div class="col-lg-6"">
+                                        <p class="like-count text-right" ><%= post.like_count %></p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button class="btn interact-btn like-btn"><span class='glyphicon <%= (post.liked === false) ? "glyphicon-heart-empty" : "glyphicon-heart" %>'></span></button>
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                    <% if (post_img) { %>
+                        <img class="post-img" src=<%= post_img %>></img>
+                    <% }%>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>

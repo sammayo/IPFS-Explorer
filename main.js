@@ -11,7 +11,7 @@ app.use(bodyParser.json({limit: '100 mb'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
 const VIEWS = {
-    main: "index.ejs"
+    main: "newsfeed.ejs"
 };
 
 app.set('view engine', 'ejs');
