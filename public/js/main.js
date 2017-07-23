@@ -1,5 +1,8 @@
 $(function () {
 
+	// Initial
+	$("#btn-file-submit").hide();
+
 	// Utilities
 
 	function downloadFile(url) {
@@ -134,7 +137,10 @@ $(function () {
 					contents: fileContents
 				}
 			}, (a) => {
-				console.log(a);
+				var tingleModal = new tingle.modal({});
+	        	tingleModal.setContent("Uploaded File: " 
+	        		+ fileName + "<br>Hash: " + a);
+	        	tingleModal.open();
 			}
 		)
 	});
@@ -143,7 +149,6 @@ $(function () {
 	$("#btn-search-hash").click((e) => {
 		e.preventDefault();
 		let searchVal = $("#search-hash").val();
-
 		downloadFile("/downloadipfs?hashToDl=" + searchVal)
 	    .then((contents) => {
 	    	saveAs(new Blob([contents.data]), contents.name);
