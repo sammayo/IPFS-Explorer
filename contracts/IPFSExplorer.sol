@@ -3,7 +3,7 @@ pragma solidity ^0.4.11;
 contract IPFSExplorer {
 	struct file {
 		string name;
-		bytes32 ipfsHash;
+		string ipfsHash;
 	}
 
 	file[] public files;
@@ -12,11 +12,11 @@ contract IPFSExplorer {
 		return files[num].name;
 	}
 
-	function getHash(uint num) returns (bytes32) {
+	function getHash(uint num) returns (string) {
 		return files[num].ipfsHash;
 	}
 
-	function addFile(string _name, string _extension, bytes32 _ipfsHash) {
-		files.push(file({name: _name, extension: _extension, ipfsHash: _ipfsHash}));
+	function addFile(string _name, string _ipfsHash) {
+		files.push(file({name: _name, ipfsHash: _ipfsHash}));
 	}
 }
