@@ -11,7 +11,7 @@ app.use(bodyParser.json({limit: '100 mb'}));
 app.use(bodyParser.urlencoded({extended: true}));
 
 const VIEWS = {
-    main: "index.ejs"
+    main: "newsfeed.ejs"
 };
 
 app.set('view engine', 'ejs');
@@ -38,5 +38,22 @@ app.get("/downloadipfs", async (req, res) => {
 app.get("/downloadartifact", (req, res) => {
 	res.send(artifact);
 })
+
+app.get("/getpostsnewsfeed", (req, res) => {
+	res.send({
+		posts: [
+			{
+				timestamp: 1,
+				text: "",
+				image: "https://www.takemefishing.org/tmf/assets/images/fish/dolphinfish-464x170.png"
+			},
+			{
+				timestamp: 1,
+				text: "",
+				image: "https://www.takemefishing.org/tmf/assets/images/fish/dolphinfish-464x170.png"
+			}
+		]
+	});
+});
 
 app.listen(PORT_NUM, () => console.log("Distribute the Press --> Profit"));

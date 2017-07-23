@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-lg-12">
+        <div id="post-adder">
+            <button type="button" class="btn btn-primary post-display-add-modal" postType="post">Share a meme?</button>
+        </div>
+        <% _.each(posts, function(post, index) { %>
+            <div class="post">
+                <div class="post-content">
+                    <% var post_img = post.image;%>
+                    <div class="post-header post-autogen"> 
+                    
+                        <div class="col-lg-9">
+                             <p class="post-text"><a class="post-user-hyperlink" href="/INSERT_HERE"></a><%= post.text %></p>
+                        </div>
+                        
+                        <div class="col-lg-3">
+                            <div class="row">
+                                <span class="post-time"><%= moment(post.timestamp).fromNow() %></span>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6"></div>
+                                <div class="col-lg-3">
+                                    <button class="btn interact-btn comment-btn">
+                                        <span class="glyphicon glyphicon-comment">
+                                        </span>
+                                    </button>
+                                </div>
+                                <div class="col-lg-3"></div>
+                            </div>
+                            <div class="row">
+                                <div class="like-container">
+                                    <div class="col-lg-6"">
+                                        <p class="like-count text-right" ></p>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <button class="btn interact-btn like-btn"><span class='glyphicon'></span></button>
+                                    </div>
+                                    <div class="col-lg-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <img class="post-img" src=<%= post_img %>></img>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+</div>
