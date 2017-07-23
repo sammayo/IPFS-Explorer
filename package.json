@@ -26,6 +26,8 @@
     "bootstrap": "^3.3.7",
     "browser-ipfs": "0.0.6",
     "browserify": "^14.4.0",
+    "ejs": "^2.5.6",
+    "express": "^4.15.3",
     "fs": "0.0.1-security",
     "jquery": "^3.2.1",
     "truffle-contract": "^2.0.2",
