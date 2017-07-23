@@ -1,7 +1,5 @@
-// Import libraries we need.
 const Web3 = require('web3');
 const contract = require('truffle-contract');
-const fs = require('fs');
 
 if (typeof web3 !== 'undefined') {
   console.warn("Using web3 detected from external source. If you find that your accounts don't appear or you have 0 MetaCoin, ensure you've configured that source properly. If using MetaMask, see the following link. Feel free to delete this warning. :) http://truffleframework.com/tutorials/truffle-and-metamask")
@@ -13,8 +11,10 @@ if (typeof web3 !== 'undefined') {
   window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
+let addFile;
 $.get("/downloadartifact", (res) => {
 	var artifact = res;
+	var exp;
 	
 	// MetaCoin is our usable abstraction, which we'll use through the code below.
 	var IPFSExplorer = contract(artifact);
@@ -22,7 +22,11 @@ $.get("/downloadartifact", (res) => {
 	IPFSExplorer.setProvider(web3.currentProvider);
 
 	// Get the initial account balance so it can be displayed.
-	IPFSExplorer.deployed().then(function(instance) {
-	});
+	addFile = function(name, hash) {
+		IPFSExplorer.deployed().then(function(instance) {
+			exp = instance;
+			return exp.addFile(name, hash);
+		});
+	}
 
 });

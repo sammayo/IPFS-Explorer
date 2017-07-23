@@ -3,7 +3,6 @@ pragma solidity ^0.4.11;
 contract IPFSExplorer {
 	struct file {
 		string name;
-		string extension;
 		bytes32 ipfsHash;
 	}
 
@@ -11,10 +10,6 @@ contract IPFSExplorer {
 
 	function getName(uint num) returns (string) {
 		return files[num].name;
-	}
-
-	function getExtension(uint num) returns (string) {
-		return files[num].extension;
 	}
 
 	function getHash(uint num) returns (bytes32) {
