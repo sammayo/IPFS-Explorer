@@ -44,7 +44,12 @@ app.get("/getpostsnewsfeed", (req, res) => {
 		posts: [
 			{
 				timestamp: 1,
-				text: "hello",
+				text: "",
+				image: "https://www.takemefishing.org/tmf/assets/images/fish/dolphinfish-464x170.png"
+			},
+			{
+				timestamp: 1,
+				text: "",
 				image: "https://www.takemefishing.org/tmf/assets/images/fish/dolphinfish-464x170.png"
 			}
 		]
