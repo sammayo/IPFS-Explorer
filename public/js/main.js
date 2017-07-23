@@ -103,10 +103,21 @@ $(function () {
 		var reader = new FileReader();
 		if (this.files.length > 0) {
 			let file = this.files[0];
-	    	reader.onload = function () {
+			reader.addEventListener('load', function () {
+			    var u = new Uint8Array(this.result),
+			        a = new Array(u.length),
+			        i = u.length;
+			    while (i--) // map to hex
+			        a[i] = (u[i] < 16 ? '0' : '') + u[i].toString(16);
+			    u = null; // free memory
+			    // console.log(a); // work with this
+			// });
+	    	// reader.onload = function () {
 	        	var buffer = this.result;
 	      		fileName = file.name;
 	      		fileContents = buffer;
+	      		console.log(buffer);
+	      		// console.log(parseInt(buffer[0]));
 	      		$("#btn-file-submit").show();
 	      		downloadables.push({
 	      			name: "FUCK YEAH",
@@ -117,10 +128,9 @@ $(function () {
 	      			contents: buffer,
 	      			hash: "abcde"
 	      		});
-
 	        }
 	        console.log(file);
-	    	reader.readAsBinaryString(file);
+	    	reader.readAsDataURL(file);
     	} else {
     		fileName = undefined;
     		fileContents = undefined;
