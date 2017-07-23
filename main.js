@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const app = express();
 const PORT_NUM = 8001;
 const artifact = require("./build/contracts/IPFSExplorer.json");
+const ipfsInteractor = require("./sendToIPFS.js");
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json({limit: '100 mb'}));
@@ -19,18 +20,19 @@ app.get("/", (req, res) => {
     res.render(VIEWS.main);
 });
 
-app.post("/uploadipfs", (req, res) => {
-	let contents = req.body.file.contents;
+app.post("/uploadipfs", async (req, res) => {
 	let fileName = req.body.file.name;
-	res.send("Ok");
+	let contents = req.body.file.contents;
+	let hash = await ipfsInteractor.upload(fileName, contents);
+	res.send({hash: hash});
 });
 
-app.get("/downloadipfs", (req, res) => {
+app.get("/downloadipfs", async (req, res) => {
 	let hash = req.query.hashToDl;
-
+	let content = await ipfsInteractor.download(hash);
 	//TODO: Send back a file
 	res.set("Content-Disposition", "attachment");
-	res.send("Ok");
+	res.send({content: content});
 });
 
 app.get("/downloadartifact", (req, res) => {
