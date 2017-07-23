@@ -26,4 +26,8 @@ function download(hash) {
   });
   return content;
 }
-//download("QmSdj8B9mpjFb4feNcbjdN512du7bPPGuKHzWt4H568TN7")
+
+module.exports = {
+  upload: upload,
+  download: download
+};
