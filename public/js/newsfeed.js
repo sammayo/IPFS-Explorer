@@ -25,6 +25,7 @@ $(function () {
 					type: "GET",
 					success: function (a, b, res) {
 						var posts = res.responseJSON.posts;
+						console.log(res.responseJSON);
 						var models = [];
 						$.each(posts, function (i, post) {
 							models.push(new PostModel(post));
