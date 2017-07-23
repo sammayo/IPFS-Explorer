@@ -1,10 +1,10 @@
 $(function () {
 	setTimeout(() => {
-		const eth = window.pane;
-		console.log("eth: "+eth)
-
-		// Initial
-		$("#btn-file-submit").hide();
+		// const eth = window.pane;
+		// console.log("eth: "+eth)
+		// eth.addFile(fileName, a.hash).then(function(result) {
+		// 	console.log("this is a transaction: "+result);
+		// })
 
 		// Utilities
 
@@ -129,7 +129,6 @@ $(function () {
 	    	} else {
 	    		fileName = undefined;
 	    		fileContents = undefined;
-	    		$("#btn-file-submit").hide();
 	    	}
 		});
 
@@ -143,10 +142,15 @@ $(function () {
 					}
 				}, (a) => {
 					var tingleModal = new tingle.modal({});
+					console.log(typeof fileName)
+					console.log(typeof a.hash)
 					var r;
 					eth.addFile(fileName, a.hash).then(function(result) {
 						r = result;
 					})
+					// eth.getNumFiles().then(function(result) {
+					// 	console.log(result)
+					// })
 		        	tingleModal.setContent(
 		        		"<h1>Success</h1>"
 		        		+ "<br>Uploaded File: " 
@@ -166,5 +170,5 @@ $(function () {
 		    	download(contents.data, contents.name);
 		    });
 		});
-	}, 500)
+	}, 1000)
 });

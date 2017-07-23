@@ -83,7 +83,33 @@ $(function () {
 				/*
 					TODO Add imgData to smart contract
 				*/
-				console.log(imgData);
+				$.post("/uploadipfs", {
+						file: {
+							name: "abcd",
+							contents: imgData
+						}
+					}, (a) => {
+						var tingleModal = new tingle.modal({});
+						console.log(typeof a.hash)
+						var r;
+						console.log(window);
+						console.log(window.mane);
+						var fileName = "abcd";
+						window.mane.addFile(fileName, a.hash).then(function(result) {
+							r = result;
+						})
+						// eth.getNumFiles().then(function(result) {
+						// 	console.log(result)
+						// })
+			        	tingleModal.setContent(
+			        		"<h1>Success</h1>"
+			        		+ "<br>Uploaded File: " 
+			        		+ fileName + "<br>Hash: " + a.hash+"<br>Eth tx: "+r);
+
+			        	tingleModal.open();
+					}
+				)
+				// console.log(imgData);
 			};
 			performPost();
 

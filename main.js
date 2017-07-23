@@ -8,7 +8,7 @@ const ipfsInteractor = require("./sendToIPFS.js");
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json({limit: '100 mb'}));
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: true, limit: '100 mb'}));
 
 const VIEWS = {
     main: "newsfeed.ejs"
