@@ -11,7 +11,7 @@ if (typeof web3 !== 'undefined') {
   window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 }
 
-let addFile;
+let addFile, getName, getHash;
 $.get("/downloadartifact", (res) => {
 	var artifact = res;
 	var exp;
@@ -23,12 +23,37 @@ $.get("/downloadartifact", (res) => {
 
 	// Get the initial account balance so it can be displayed.
 	addFile = function(name, hash) {
-		IPFSExplorer.deployed().then(function(instance) {
-			exp = instance;
-			return exp.addFile(name, hash);
-		});
+		return new Promise((resolve, reject) => {
+			IPFSExplorer.deployed().then(function(instance) {
+				exp = instance;
+				return exp.addFile(name, hash, {from: web3.eth.accounts[0]});
+			}).then(function(result) {
+				resolve(result);
+			});
+		})
 	}
-
+	getName = function(num) {
+		return new Promise((resolve, reject) => {
+			var name;
+			IPFSExplorer.deployed().then(function(instance) {
+				exp = instance;
+				return exp.getName.call(num);
+			}).then(function(result) {
+				resolve(result);
+			});
+		})
+	}
+	getHash = function(num) {
+		return new Promise((resolve, reject) => {
+			var name;
+			IPFSExplorer.deployed().then(function(instance) {
+				exp = instance;
+				return exp.getHash.call(num);
+			}).then(function(result) {
+				resolve(result);
+			});
+		})
+	}
 });
 
 window.pane = {addFile: addFile}
