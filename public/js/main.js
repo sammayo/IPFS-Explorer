@@ -138,8 +138,10 @@ $(function () {
 				}
 			}, (a) => {
 				var tingleModal = new tingle.modal({});
-	        	tingleModal.setContent("Uploaded File: " 
-	        		+ fileName + "<br>Hash: " + a);
+	        	tingleModal.setContent(
+	        		"<h1>Success</h1>"
+	        		+ "<br>Uploaded File: " 
+	        		+ fileName + "<br>Hash: " + a.hash);
 	        	tingleModal.open();
 			}
 		)
