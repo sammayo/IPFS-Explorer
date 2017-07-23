@@ -16,6 +16,10 @@ contract IPFSExplorer {
 		return files[num].ipfsHash;
 	}
 
+	function getNumFiles() returns (uint) {
+		return files.length;
+	}
+
 	function addFile(string _name, string _ipfsHash) {
 		files.push(file({name: _name, ipfsHash: _ipfsHash}));
 	}
