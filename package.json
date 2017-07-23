@@ -1,0 +1,9 @@
+{
+  "name": "ipfs-explorer",
+  "version": "1.0.0",
+  "dependencies": {
+    "browser-ipfs": "0.0.6",
+    "truffle-contract": "^2.0.0",
+    "web3": "^0.20.0"
+  }
+}
