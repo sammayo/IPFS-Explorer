@@ -97,16 +97,18 @@ $(function () {
 						var fileName = "abcd";
 						window.mane.addFile(fileName, a.hash).then(function(result) {
 							r = result;
-						})
-						// eth.getNumFiles().then(function(result) {
-						// 	console.log(result)
-						// })
-			        	tingleModal.setContent(
+							console.log("WHAT IS HERE " + JSON.stringify(result));
+							tingleModal.setContent(
 			        		"<h1>Success</h1>"
 			        		+ "<br>Uploaded File: " 
 			        		+ fileName + "<br>Hash: " + a.hash+"<br>Eth tx: "+r);
 
-			        	tingleModal.open();
+			        		tingleModal.open();
+						})
+						// eth.getNumFiles().then(function(result) {
+						// 	console.log(result)
+						// })
+			   
 					}
 				)
 				// console.log(imgData);

@@ -8,15 +8,15 @@ contract IPFSExplorer {
 
 	file[] public files;
 
-	function getName(uint num) returns (string) {
+	function getName(uint num) constant returns (string) {
 		return files[num].name;
 	}
 
-	function getHash(uint num) returns (string) {
+	function getHash(uint num) constant returns (string) {
 		return files[num].ipfsHash;
 	}
 
-	function getNumFiles() returns (uint) {
+	function getNumFiles() constant returns (uint) {
 		return files.length;
 	}
 

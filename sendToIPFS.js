@@ -13,7 +13,7 @@ function upload(name, data) {
         console.log(err);
         throw err;
       }
-      console.log(files[0].hash);
+      // console.log(files[0].hash);
       resolve(files[0].hash);
     })
   });
@@ -23,16 +23,21 @@ function upload(name, data) {
 function download(hash) {
   var content;
   return new Promise((resolve, reject) => {
-    ipfs.files.cat(hash, function(err, stream) {
-      if (err) {
-        console.log(err);
-      }
-      stream.pipe(bl((err, data) => {
-        content = JSON.parse(data);
-        console.log(content);
-        resolve(content);
-      }))
-    });
+    // ">= 15 Filters out the junk Aspyn put in" - Aspyn
+    if (hash.length >= 15) {
+      ipfs.files.cat(hash, function(err, stream) {
+        if (err) {
+          console.log(err);
+        }
+        stream.pipe(bl((err, data) => {
+          content = JSON.parse(data);
+          // console.log(content);
+          resolve(content);
+        }))
+      });
+    } else {
+      resolve("https://www.takemefishing.org/tmf/assets/images/fish/dolphinfish-464x170.png");
+    }
   });
 }
 
